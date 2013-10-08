@@ -2,6 +2,7 @@ package controller;
 
 import com.mongodb.DB;
 import com.mongodb.Mongo;
+import com.mongodb.MongoClient;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +17,11 @@ public class MainController {
     private Jongo jongo;
     
     private Jongo getConnection() throws UnknownHostException {
+        
+        MongoClient client = new MongoClient( "localhost" );
+        
         if( db == null ) {
-            db = new Mongo().getDB( DATABASE_NAME );
+            db = client.getDB( DATABASE_NAME );
         }
         
         if( jongo == null ) {
