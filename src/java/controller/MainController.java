@@ -2,10 +2,12 @@ package controller;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import java.lang.annotation.Annotation;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import model.JongoCollection;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 
@@ -30,9 +32,17 @@ public class MainController {
         return jongo;
     }
     
-    public List<Object> getDocuments( Class type, String documentName ) throws UnknownHostException {
+    private String getDocumentName( Class type ) {
+        Annotation annotation = type.getAnnotation( JongoCollection.class );
+        JongoCollection jongoCollection = ( JongoCollection ) annotation;
+        
+        return jongoCollection.value();
+    }
+    
+    public List<Object> getDocuments( Class type ) throws UnknownHostException {
         List<Object> objects = new ArrayList<>();
         Jongo connection = getConnection();
+        String documentName = getDocumentName( type );
         
         MongoCollection listRetrieved = connection.getCollection( documentName );
         Iterable<Object> all = listRetrieved.find().as( type );
@@ -46,9 +56,19 @@ public class MainController {
     
     public void saveDocument( Class type, Object obj ) throws UnknownHostException {
         Jongo connection = getConnection();
+        String documentName = getDocumentName( type );
         
-        MongoCollection collection = connection.getCollection( "" );
+        MongoCollection collection = connection.getCollection( documentName );
         
         collection.save( obj );
+    }
+    
+    public void removeDocument( Class type, Object obj ) throws UnknownHostException {
+        Jongo connection = getConnection();
+        String documentName = getDocumentName( type );
+        
+        MongoCollection collection = connection.getCollection( documentName );
+        
+        collection.remove( "" );
     }
 }

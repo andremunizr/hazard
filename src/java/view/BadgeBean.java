@@ -21,7 +21,7 @@ public class BadgeBean implements Serializable {
     public List<Badge> getBadges() throws UnknownHostException {
         
         if( badges == null ) {
-            setBadges( ( List<Badge> ) ( List<?> ) controller.getDocuments( Badge.class, "badge" ) );
+            setBadges( ( List<Badge> ) ( List<?> ) controller.getDocuments( Badge.class ) );
         }
         
         return badges;
@@ -34,7 +34,7 @@ public class BadgeBean implements Serializable {
     @PostConstruct
     public void initializer() {
         try {
-            setBadges( ( List<Badge> ) ( List<?> ) controller.getDocuments( Badge.class, "badge" ) );
+            setBadges( ( List<Badge> ) ( List<?> ) controller.getDocuments( Badge.class ) );
         }
         catch( UnknownHostException ex ) {
             System.out.println( ex.getMessage() );
