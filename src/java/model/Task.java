@@ -14,6 +14,7 @@ public class Task{
     private Integer status;
     private String description;
     private Date releaseDate;
+    private Date finishDate;
     private List<Comment> comments;
     
     public Task(){}
@@ -50,6 +51,14 @@ public class Task{
         this.releaseDate = releaseDate;
     }
 
+    public Date getFinishDate() {
+        return finishDate;
+    }
+
+    public void setFinishDate(Date finishDate) {
+        this.finishDate = finishDate;
+    }
+    
     public List<Comment> getComments() {
         return comments;
     }

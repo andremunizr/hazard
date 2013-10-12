@@ -11,6 +11,9 @@ public class User{
     @ObjectId
     private String _id;
     private String name;
+    private String employ;
+    private String company;
+    private String about;
     private String image;
     private List<Task> tasks;
 
@@ -32,12 +35,36 @@ public class User{
         this.name = name;
     }
 
+    public String getEmploy() {
+        return employ;
+    }
+
+    public void setEmploy(String employ) {
+        this.employ = employ;
+    }
+    
     public String getImage() {
         return image;
     }
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getAbout() {
+        return about;
+    }
+
+    public void setAbout(String about) {
+        this.about = about;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
     }
     
     public List<Task> getTasks() {
