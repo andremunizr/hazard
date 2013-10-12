@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import model.JongoCollection;
+import org.bson.types.ObjectId;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 
@@ -54,6 +55,15 @@ public class MainController {
         return objects;
     }
     
+    public Object getDocument( Class type, String objectId ) throws UnknownHostException {
+        Jongo connection = getConnection();
+        String documentName = getDocumentName( type );
+        
+        MongoCollection collection = connection.getCollection( documentName );
+        
+        return collection.findOne( new ObjectId( objectId ) ).as( type );
+    }
+    
     public void saveDocument( Class type, Object obj ) throws UnknownHostException {
         Jongo connection = getConnection();
         String documentName = getDocumentName( type );
@@ -61,6 +71,15 @@ public class MainController {
         MongoCollection collection = connection.getCollection( documentName );
         
         collection.save( obj );
+    }
+    
+    public void insertDocument( Class type, Object obj ) throws UnknownHostException {
+        Jongo connection = getConnection();
+        String documentName = getDocumentName( type );
+        
+        MongoCollection collection = connection.getCollection( documentName );
+        
+        collection.insert( obj );
     }
     
     public void removeDocument( Class type, Object obj ) throws UnknownHostException {
