@@ -16,15 +16,15 @@
                 
                 <p:outputLabel value="Image: " />
                 <p:inputText value="#{badgeBean.badge.image}" />
-                <p:commandButton value="Save" action="#{badgeBean.save()}" update=":form" />
+                <p:commandButton value="Save" action="#{badgeBean.save()}" update="@form" />
             </h:panelGrid>
+            
+            <p:dataTable value="#{badgeBean.badges}" var="badge">
+                <p:column headerText="Id">#{badge.id}</p:column>
+                <p:column headerText="Name">#{badge.name}</p:column>
+                <p:column headerText="Image">#{badge.image}</p:column>
+            </p:dataTable>
         </h:form>
-        
-        <p:dataTable value="#{badgeBean.badges}" var="badge">
-            <p:column headerText="Id">#{badge.id}</p:column>
-            <p:column headerText="Name">#{badge.name}</p:column>
-            <p:column headerText="Image">#{badge.image}</p:column>
-        </p:dataTable>
     </h:body>
 </html>
 
