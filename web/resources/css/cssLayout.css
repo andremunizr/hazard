@@ -434,5 +434,32 @@
     margin: 0 10px;
 }
 
+.badges-container{
+    box-sizing: border-box;
+    margin-top: 10px;
+}
 
+.badges-face{
+    height: 45px;
+    width: 45px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px #aaa;
+    float: left;
+    margin-right: 8px;
+    transition: 2s;
+    background-image: -webkit-linear-gradient(top, #fff, #fff);
+}
 
+.badges-face:hover{
+    background-image: -webkit-linear-gradient(top, #ddd, #646461);
+}
+
+.badges-face img{
+    height: 100%;
+    width: 100%;
+}
+
+.profile-edit-box{
+    margin: 30px 10px;
+}
