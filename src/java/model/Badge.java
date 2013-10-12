@@ -3,7 +3,6 @@ package model;
 
 import org.jongo.marshall.jackson.oid.ObjectId;
 
-@JongoCollection( "badge" )
 public class Badge {
     
     @ObjectId
@@ -35,6 +34,10 @@ public class Badge {
 
     public void setImage(String image) {
         this.image = image;
+    }
+    
+    public static String getDocumentName() {
+        return "badge";
     }
         
     @Override
