@@ -40,12 +40,17 @@ public class MainController {
         return jongoCollection.value();
     }
     
-    public List<Object> getDocuments( Class type ) throws UnknownHostException {
-        List<Object> objects = new ArrayList<>();
+    private MongoCollection getCollection( Class type ) throws UnknownHostException {
         Jongo connection = getConnection();
         String documentName = getDocumentName( type );
         
-        MongoCollection listRetrieved = connection.getCollection( documentName );
+        return connection.getCollection( documentName );
+    }
+    
+    public List<Object> getDocuments( Class type ) throws UnknownHostException {
+        List<Object> objects = new ArrayList<>();
+
+        MongoCollection listRetrieved = getCollection( type );
         Iterable<Object> all = listRetrieved.find().as( type );
         
         for( Object obj : all ) {
@@ -55,38 +60,26 @@ public class MainController {
         return objects;
     }
     
-    public Object getDocument( Class type, String objectId ) throws UnknownHostException {
-        Jongo connection = getConnection();
-        String documentName = getDocumentName( type );
-        
-        MongoCollection collection = connection.getCollection( documentName );
+    public Object findOne( Class type, String objectId ) throws UnknownHostException {
+        MongoCollection collection = getCollection( type );
         
         return collection.findOne( new ObjectId( objectId ) ).as( type );
     }
     
     public void saveDocument( Class type, Object obj ) throws UnknownHostException {
-        Jongo connection = getConnection();
-        String documentName = getDocumentName( type );
-        
-        MongoCollection collection = connection.getCollection( documentName );
+        MongoCollection collection = getCollection( type );
         
         collection.save( obj );
     }
     
     public void insertDocument( Class type, Object obj ) throws UnknownHostException {
-        Jongo connection = getConnection();
-        String documentName = getDocumentName( type );
-        
-        MongoCollection collection = connection.getCollection( documentName );
+        MongoCollection collection = getCollection( type );
         
         collection.insert( obj );
     }
     
     public void removeDocument( Class type, Object obj ) throws UnknownHostException {
-        Jongo connection = getConnection();
-        String documentName = getDocumentName( type );
-        
-        MongoCollection collection = connection.getCollection( documentName );
+        MongoCollection collection = getCollection( type );
         
         collection.remove( "" );
     }
