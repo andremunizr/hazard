@@ -14,6 +14,7 @@ import model.Badge;
 @ViewScoped
 public class BadgeBean implements Serializable {
     private List<Badge> badges;
+    private Badge badge;
     
     @EJB
     private MainController controller;
@@ -30,14 +31,27 @@ public class BadgeBean implements Serializable {
     public void setBadges(List<Badge> badges) {
         this.badges = badges;
     }
+
+    public Badge getBadge() {
+        return badge;
+    }
+
+    public void setBadge(Badge badge) {
+        this.badge = badge;
+    }
     
     @PostConstruct
     public void initializer() {
         try {
             setBadges( ( List<Badge> ) ( List<?> ) controller.getDocuments( Badge.class ) );
+            setBadge( new Badge() );
         }
         catch( UnknownHostException ex ) {
             System.out.println( ex.getMessage() );
         }
+    }
+    
+    public void save() throws UnknownHostException {
+        controller.saveDocument( Badge.class, badge );
     }
 }

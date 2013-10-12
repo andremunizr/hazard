@@ -3,6 +3,7 @@ package model;
 
 import org.jongo.marshall.jackson.oid.ObjectId;
 
+@JongoCollection( "badge" )
 public class Badge {
     
     @ObjectId
@@ -10,7 +11,7 @@ public class Badge {
     private String name;
     private String image;
     
-    private Badge(){}
+    public Badge(){}
 
     public String getId() {
         return _id;

@@ -2,10 +2,12 @@ package controller;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import java.lang.annotation.Annotation;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import model.JongoCollection;
 import org.bson.types.ObjectId;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
@@ -32,7 +34,9 @@ public class MainController {
     }
     
     private String getDocumentName( Class type ) {
-        return "badge";
+        JongoCollection annotation = ( JongoCollection ) type.getAnnotation( JongoCollection.class );
+        
+        return annotation.value();
     }
     
     private MongoCollection getCollection( Class type ) throws UnknownHostException {
