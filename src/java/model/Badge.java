@@ -3,7 +3,8 @@ package model;
 
 import org.jongo.marshall.jackson.oid.ObjectId;
 
-public class Badge{
+@JongoCollection( "badge" )
+public class Badge {
     
     @ObjectId
     private String _id;

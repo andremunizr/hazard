@@ -1,7 +1,6 @@
 package controller;
 
 import com.mongodb.DB;
-import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -43,5 +42,13 @@ public class MainController {
         }
         
         return objects;
+    }
+    
+    public void saveDocument( Class type, Object obj ) throws UnknownHostException {
+        Jongo connection = getConnection();
+        
+        MongoCollection collection = connection.getCollection( "" );
+        
+        collection.save( obj );
     }
 }
