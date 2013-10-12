@@ -10,8 +10,6 @@ public class Badge {
     private String _id;
     private String name;
     private String image;
-    
-    public Badge(){}
 
     public String getId() {
         return _id;

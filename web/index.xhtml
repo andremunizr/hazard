@@ -16,7 +16,7 @@
                 
                 <p:outputLabel value="Image: " />
                 <p:inputText value="#{badgeBean.badge.image}" />
-                <p:commandButton value="Save" action="#{badgeBean.save()}" />
+                <p:commandButton value="Save" action="#{badgeBean.save()}" update=":form" />
             </h:panelGrid>
         </h:form>
         
