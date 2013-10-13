@@ -3,31 +3,56 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
 
         <ui:composition template="./temp/index.xhtml">
 
             <ui:define name="content">
-                
-                <span class="headerTitle"> nova tarefa </span>
+
+                <h:form>
+                    <ul class="menuUl">
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="nova tarefa" action="tarefas.xhtml" />
+                            </span>
+                        </li>
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="minhas tarefas" action="minhas-tarefas.xhtml" />
+                            </span>
+                        </li>
+                    </ul>
+                </h:form>
+
                 <div class="profile-edit-box">
+                    <span class="headerTitle edit-box-title">
+                        nova tarefa
+                    </span>
                     <h:form>
-                        <h:panelGrid columns="1">
+                        <h:panelGrid columns="2">
                             <h:outputLabel value="Descrição:" />
                             <p:inputText size="40"/>
+
                             <h:outputLabel value="Inicio:" />
-                            <p:calendar mode="popup" />
+                            <p:calendar mode="popup" size="10" />
+
                             <h:outputLabel value="Fim:" />
-                            <p:calendar mode="popup" />
-                            <h:outputLabel value="Sobre:" />
-                            <p:inputTextarea cols="42" />
+                            <p:calendar mode="popup" size="10" />
+
+                            <h:outputLabel value="Responsável:" />
+                            <p:selectOneMenu>
+                                <f:selectItems var="badge"
+                                               value="#{badgeBean.badges}" 
+                                               itemLabel="#{badge.name}"/>
+                            </p:selectOneMenu>
+
                             <h:commandButton styleClass="action-button search-button" value="salvar"/>
                         </h:panelGrid>
                     </h:form>
                 </div>
-                
             </ui:define>
 
         </ui:composition>

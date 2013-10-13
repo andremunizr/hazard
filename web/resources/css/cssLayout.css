@@ -211,6 +211,17 @@
     vertical-align: middle;
 }
 
+.menuUl{
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+}
+
+.menuUl li{
+    display: inline;
+    margin-right: 10px;
+}
+
 .topUl{
     list-style-type: none;
     display: inline-block;
@@ -462,4 +473,14 @@
 
 .profile-edit-box{
     margin: 30px 10px;
+    border: 1px solid #ddd;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #fafafa;
+}
+
+.edit-box-title{
+    margin: 20px 20px 0 10px;
+    float: left;
 }

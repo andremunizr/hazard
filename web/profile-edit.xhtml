@@ -9,8 +9,23 @@
         <ui:composition template="./temp/index.xhtml">
             <ui:define name="content">
 
-                <span class="headerTitle"> editar perfil </span>
+                <h:form>
+                    <ul class="menuUl">
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="perfil" action="tarefas.xhtml" />
+                            </span>
+                        </li>
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="editar perfil" action="minhas-tarefas.xhtml" />
+                            </span>
+                        </li>
+                    </ul>
+                </h:form>
+                                
                 <div class="profile-edit-box">
+                    <span class="headerTitle edit-box-title"> editar perfil </span>
                     <h:form>
                         <h:panelGrid columns="1">
                             <h:outputLabel value="Nome:" />
