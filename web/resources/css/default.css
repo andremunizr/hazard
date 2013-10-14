@@ -35,6 +35,9 @@ a:link:hover{
   color: #00f;
 }
 
+input[type="file"]{
+    color: green;
+}
 
 ::-webkit-scrollbar{
     width: 8px;

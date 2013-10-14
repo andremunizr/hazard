@@ -478,9 +478,25 @@
     box-sizing: border-box;
     padding: 10px;
     background-color: #fafafa;
+    height: 335px;
+    overflow-y: auto;
+}
+
+.profile-edit-img{
+    float: right;
+    border: 4px solid #fff;
+    box-shadow: 0 0 3px #aaa;
+    margin-right: 180px;
+    margin-top: 20px;
+    width: 150px;
+    height: 150px;
 }
 
 .edit-box-title{
     margin: 20px 20px 0 10px;
     float: left;
+}
+
+.left-recue{
+    margin-left: 0;
 }
