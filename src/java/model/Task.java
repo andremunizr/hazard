@@ -15,6 +15,7 @@ public class Task{
     private String description;
     private Date releaseDate;
     private Date finishDate;
+    private Double estimatedHours;
     private List<Comment> comments;
     
     public Task(){}
@@ -57,6 +58,14 @@ public class Task{
 
     public void setFinishDate(Date finishDate) {
         this.finishDate = finishDate;
+    }
+
+    public Double getEstimatedHours() {
+        return estimatedHours;
+    }
+
+    public void setEstimatedHours(Double estimatedHours) {
+        this.estimatedHours = estimatedHours;
     }
     
     public List<Comment> getComments() {
