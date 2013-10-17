@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
 @XmlRootElement
+@JongoCollection( "task" )
 public class Task{
     
     @ObjectId

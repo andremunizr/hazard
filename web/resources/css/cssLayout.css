@@ -189,8 +189,9 @@
 
 .search-button{
     margin-left: 10px; 
-    padding: 5px 15px;
+    padding: 0px 15px;
     width: 100px;
+    height: 31px;
     text-align: center;
 }
 

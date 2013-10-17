@@ -33,22 +33,26 @@
                     <h:form>
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Descrição:" />
-                            <p:inputText size="40"/>
+                            <p:inputText size="40" value="#{taskBean.task.description}" />
 
                             <h:outputLabel value="Inicio:" />
-                            <p:calendar mode="popup" size="10" />
+                            <p:calendar mode="popup" size="10" value="#{taskBean.task.releaseDate}" />
 
                             <h:outputLabel value="Fim:" />
-                            <p:calendar mode="popup" size="10" />
+                            <p:calendar mode="popup" size="10" value="#{taskBean.task.finishDate}" />
 
                             <h:outputLabel value="Responsável:" />
-                            <p:selectOneMenu>
-                                <f:selectItems var="badge"
-                                               value="#{badgeBean.badges}" 
-                                               itemLabel="#{badge.name}"/>
+                            <p:selectOneMenu value="#{taskBean.responsableId}">
+                                <f:selectItems value="#{userBean.users}" 
+                                               var="user"                                               
+                                               itemLabel="#{user.name}"
+                                               itemValue="#{user.id}" />
                             </p:selectOneMenu>
 
-                            <h:commandButton styleClass="action-button search-button" value="salvar"/>
+                            <p:commandButton action="#{taskBean.save()}"
+                                             styleClass="action-button search-button" 
+                                             value="salvar"
+                                             update="@form" />
                         </h:panelGrid>
                     </h:form>
                 </div>

@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
 @XmlRootElement
+@JongoCollection( "group" )
 public class Group{
     
     @ObjectId
