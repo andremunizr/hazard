@@ -15,12 +15,18 @@
                     </div>
                     <div class="logForm">
                         <h:form>
+                            
+                            <p:growl id="growl" showDetail="true" />
+                            
                             <h:panelGrid columns="1">
-                                <h:outputLabel value="login" />
-                                <p:inputText value="" styleClass="focusable"/>
+                                <h:outputLabel value="e-mail" />
+                                <p:inputText value="#{loggBean.sessionUser.email}" styleClass="focusable"/>
                                 <h:outputLabel value="senha" />
-                                <p:password value="" />
-                                <h:commandButton styleClass="action-button log-button" value="entrar"/>
+                                <p:password value="#{loggBean.sessionUser.password}" />
+                                <p:commandButton action="#{loggBean.login()}"
+                                                 styleClass="action-button log-button" 
+                                                 value="entrar" 
+                                                 update="growl @form" />
                             </h:panelGrid>
                         </h:form>                        
                     </div>
@@ -39,14 +45,6 @@
                     Nullam posuere ante non elit iaculis fringilla.
                     </p>
                     <p>
-                    Pellentesque sit amet volutpat felis. Phasellus et ante quis libero suscipit ornare nec non magna.
-                    Quisque rutrum molestie turpis, et suscipit leo posuere feugiat. 
-                    Pellentesque sagittis ipsum nisl, sit amet scelerisque purus vestibulum ut.
-                    Nullam rhoncus dictum urna in interdum. Nam luctus vestibulum justo, 
-                    non semper justo sollicitudin ut. Ut malesuada dui quis neque ullamcorper placerat. 
-                    Aenean id vulputate sem, in venenatis nisi. Nulla facilisi. Suspendisse potenti.
-                    </p>
-                    <p>
                     Nulla congue dolor ac urna ornare aliquet. Fusce convallis blandit turpis, vitae tristique diam. 
                     Curabitur vitae pretium leo. Praesent hendrerit vestibulum eros sed pellentesque. 
                     Nam nec nibh quam. Fusce tellus tortor, tempus sit amet lacinia in, accumsan ut dui. 
@@ -57,34 +55,6 @@
                     Sed ornare tortor mauris. Sed blandit, ligula tempor euismod vestibulum,
                     tellus nulla sollicitudin nulla, vitae laoreet sem turpis at ligula.
                     Nullam posuere ante non elit iaculis fringilla.
-                    </p>
-                    <p>
-                    Pellentesque sit amet volutpat felis. Phasellus et ante quis libero suscipit ornare nec non magna.
-                    Quisque rutrum molestie turpis, et suscipit leo posuere feugiat. 
-                    Pellentesque sagittis ipsum nisl, sit amet scelerisque purus vestibulum ut.
-                    Nullam rhoncus dictum urna in interdum. Nam luctus vestibulum justo, 
-                    non semper justo sollicitudin ut. Ut malesuada dui quis neque ullamcorper placerat. 
-                    Aenean id vulputate sem, in venenatis nisi. Nulla facilisi. Suspendisse potenti.
-                    </p>
-                    <p>
-                    Nulla congue dolor ac urna ornare aliquet. Fusce convallis blandit turpis, vitae tristique diam. 
-                    Curabitur vitae pretium leo. Praesent hendrerit vestibulum eros sed pellentesque. 
-                    Nam nec nibh quam. Fusce tellus tortor, tempus sit amet lacinia in, accumsan ut dui. 
-                    Maecenas nec diam porttitor libero fermentum pretium. Sed sagittis, dui consectetur iaculis egestas, 
-                    nibh orci lobortis mauris, eget sagittis nulla ante at eros. 
-                    Vestibulum facilisis justo ac arcu volutpat elementum. 
-                    Curabitur molestie vehicula nisl, id consequat orci dictum quis. 
-                    Sed ornare tortor mauris. Sed blandit, ligula tempor euismod vestibulum,
-                    tellus nulla sollicitudin nulla, vitae laoreet sem turpis at ligula.
-                    Nullam posuere ante non elit iaculis fringilla.
-                    </p>
-                    <p>
-                    Pellentesque sit amet volutpat felis. Phasellus et ante quis libero suscipit ornare nec non magna.
-                    Quisque rutrum molestie turpis, et suscipit leo posuere feugiat. 
-                    Pellentesque sagittis ipsum nisl, sit amet scelerisque purus vestibulum ut.
-                    Nullam rhoncus dictum urna in interdum. Nam luctus vestibulum justo, 
-                    non semper justo sollicitudin ut. Ut malesuada dui quis neque ullamcorper placerat. 
-                    Aenean id vulputate sem, in venenatis nisi. Nulla facilisi. Suspendisse potenti.
                     </p>
                     <p>
                     Nulla congue dolor ac urna ornare aliquet. Fusce convallis blandit turpis, vitae tristique diam. 
