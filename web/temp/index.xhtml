@@ -43,38 +43,21 @@
         <div>
             <div id="left">
                 <ui:insert name="left">
-                    <div class="titles" id="titleFacadeNotif">
+                    <div class="titles back-green" id="titleFacadeNotif">
                         Notificações
                     </div>
                     <div class="notifBox" id="notifBox">                            
                         <ul class="notifList">
-                            <li>
-                                <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                One Piece
-                            </li>
-                            <li>
-                                <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                One Piece
-                            </li>
-                            <li>
-                                <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                One Piece
-                            </li>
-                            <li>
-                                <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                One Piece
-                            </li>
-                            <li>
-                                <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                One Piece
-                            </li>
-                            <li>
-                                <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                One Piece
-                            </li>
+                            <ui:repeat value="#{loggBean.sessionUser.notifications}"
+                                       var="notif">
+                                <li>
+                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
+                                    <h:outputText value="#{notif.getText()}" />
+                                </li>
+                            </ui:repeat>
                         </ul>
                     </div>
-                    <div class="titles" id="titleFacadeNotif">
+                    <div class="titles back-orange" id="titleFacadeNotif">
                         Projetos
                     </div>
                     <div class="projBox" id="projBox">                            
@@ -108,7 +91,7 @@
             <div>
                 <div id="right">
                     <ui:insert name="right">
-                        <div class="titles" id="titleFacadeEquip">
+                        <div class="titles back-blue" id="titleFacadeEquip">
                             Equipe
                         </div>
                         <div class="equipBox" id="equipBox">                            

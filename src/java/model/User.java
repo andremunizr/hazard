@@ -1,6 +1,7 @@
 
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.jongo.marshall.jackson.oid.ObjectId;
@@ -19,8 +20,12 @@ public class User{
     private String about;
     private String image;
     private List<Task> tasks;
+    private List<Notification> notifications;
 
-    public User(){}
+    public User(){
+        tasks = new ArrayList<>();
+        notifications = new ArrayList<>();
+    }
     
     public String getId() {
         return _id;
@@ -92,6 +97,14 @@ public class User{
 
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
     }
         
     @Override

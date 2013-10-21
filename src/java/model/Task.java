@@ -12,10 +12,11 @@ public class Task{
     
     @ObjectId
     private String _id;
-    private Integer status;
+    private String status = "aberta";
     private String description;
     private Date releaseDate;
     private Date finishDate;
+    private String author;
     private Double estimatedHours;
     private List<Comment> comments;
     
@@ -29,11 +30,11 @@ public class Task{
         this._id = _id;
     }
 
-    public Integer getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -61,6 +62,14 @@ public class Task{
         this.finishDate = finishDate;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+    
     public Double getEstimatedHours() {
         return estimatedHours;
     }

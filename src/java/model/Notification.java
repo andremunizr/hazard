@@ -11,7 +11,7 @@ public class Notification{
     @ObjectId
     private String _id;
     private String text;
-    private User receiver;
+    private boolean read = false;
     
     public Notification(){}
 
@@ -31,14 +31,14 @@ public class Notification{
         this.text = text;
     }
 
-    public User getReceiver() {
-        return receiver;
+    public boolean isRead() {
+        return read;
     }
 
-    public void setReceiver(User receiver) {
-        this.receiver = receiver;
-    }    
-        
+    public void setRead(boolean read) {
+        this.read = read;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;

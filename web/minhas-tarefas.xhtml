@@ -1,20 +1,43 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <body>
 
         <ui:composition template="./temp/index.xhtml">
 
             <ui:define name="content">
-                content
 
-                
-                
+                <ui:repeat value="#{loggBean.sessionUser.tasks}" var="task">
+
+                    <section class="taskItems">
+                        <h:graphicImage library="img" name="evil-toddler.jpg" styleClass="avatar-display" />
+
+                        <section class="task-list-span msgSender">
+                            <h:outputText value="#{task.author}" />
+                        </section>
+                        
+                        <section class="task-list-span desc-task">
+                            <h:outputText value="#{task.description}" />
+                        </section>
+                        
+                        <section class="task-list-span date-task">
+                            <h:outputText value="#{task.releaseDate}">
+                                <f:convertDateTime dateStyle="long" pattern="d MMM h:mm" />
+                            </h:outputText>                        
+                        </section>
+
+                        <section class="task-list-span status-task #{task.status}">
+                            <h:outputText value="#{task.status}" />
+                        </section>
+
+                    </section>
+                </ui:repeat>
 
                 <script>
-                        document.title = 'Minhas Tarefas';
+                    document.title = 'Minhas Tarefas';
                 </script>  
             </ui:define>
 
