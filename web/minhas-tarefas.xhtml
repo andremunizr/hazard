@@ -10,6 +10,21 @@
 
             <ui:define name="content">
 
+                <h:form class="underline">
+                    <ul class="menuUl">                        
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="nova tarefa" action="tarefas.xhtml" />
+                            </span>
+                        </li>
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="minhas tarefas" action="minhas-tarefas.xhtml" />
+                            </span>
+                        </li>
+                    </ul>
+                </h:form>
+                
                 <ui:repeat value="#{loggBean.sessionUser.tasks}" var="task">
 
                     <section class="taskItems">
@@ -18,11 +33,16 @@
                         <section class="task-list-span msgSender">
                             <h:outputText value="#{task.author}" />
                         </section>
-                        
+
                         <section class="task-list-span desc-task">
-                            <h:outputText value="#{task.description}" />
+                            <h:form>
+                                <h:link outcome="detalhar-tarefa.xhtml" value="#{task.description}">
+                                    <f:param name="faces-redirect" value="true" />
+                                    <f:param name="id" value="#{task.id}" />
+                                </h:link>
+                            </h:form>
                         </section>
-                        
+
                         <section class="task-list-span date-task">
                             <h:outputText value="#{task.releaseDate}">
                                 <f:convertDateTime dateStyle="long" pattern="d MMM h:mm" />

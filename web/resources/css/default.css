@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .html{
     background: url('../../resources/img/green_sea_turtle.jpg') no-repeat center center fixed ;
     -webkit-background-size: cover;
@@ -67,4 +71,9 @@ input[type="file"]{
 ::-webkit-scrollbar-track-piece {
     height: 30px;
     width: 30px;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
 }

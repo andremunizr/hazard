@@ -60,6 +60,11 @@ public class UserBean {
         setUser( new User() );
     }
     
+    public void save(User user) throws UnknownHostException{
+        
+        controller.saveDocument( User.class, user );        
+    }
+    
     public User findOne( String objectId ) throws UnknownHostException{
         return (User) controller.findOne( User.class, objectId );
     }

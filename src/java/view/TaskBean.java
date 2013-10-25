@@ -3,7 +3,6 @@ package view;
 
 import controller.MainController;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -60,6 +59,10 @@ public class TaskBean {
     public void setResponsableId(String responsableId){
         this.responsableId = responsableId;
     }
+
+    public Task findOne(String id) throws UnknownHostException{
+        return (Task) controller.findOne(Task.class, id);
+    }
     
     @PostConstruct
     public void initializer() throws UnknownHostException {
@@ -75,17 +78,21 @@ public class TaskBean {
         User responsable = findResponsable( responsableId );
         
         task.setAuthor( logBean.getSessionUser().getName() );
-                
+                                                                                 
+        controller.saveDocument( Task.class, task );
+        
         taskNotification.setText( Messenger.NOVA_TAREFA.getMsg() );
+        String link = Messenger.NOVA_TAREFA.getLink() + "?faces-redirect=true&id=" + task.getId();
+        taskNotification.setLink( link );
+        
         responsable.getNotifications().add( taskNotification );
         responsable.getTasks().add( task );
         
-        notBean.setNotification( taskNotification );
-        notBean.save();
-                                                                 
-        controller.saveDocument( Task.class, task );
         controller.saveDocument( User.class, responsable );
         
+        notBean.setNotification( taskNotification );
+        notBean.save();
+                
         setTask( new Task() );
     }    
     

@@ -70,10 +70,12 @@ public class MainController {
         return collection.findOne( "{" + attr + ": '" + value + "'}" ).as( type );
     }
     
-    public void saveDocument( Class type, Object obj ) throws UnknownHostException {
+    public Object saveDocument( Class type, Object obj ) throws UnknownHostException {
         MongoCollection collection = getCollection( type );
-        
+                
         collection.save( obj );
+        
+        return obj;
     }
     
     public void insertDocument( Class type, Object obj ) throws UnknownHostException {

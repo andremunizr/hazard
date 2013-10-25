@@ -248,6 +248,7 @@
     top: 10px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 
 .img-top-menu{
@@ -565,28 +566,101 @@
 }
 
 .msgSender{
-    padding: 0 10px;
+    padding: 0 2px;
     box-sizing: border-box;
     width: 100px;
     font-family: "Helvetica", Arial;
     font-size: 13px;
     color: #1e90ff;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-table;
 }
 
 .msgElipse a:hover{
     color:#12aa34!important;
 }
 
-.aberta{
+.executando{
     color: #00f;
 }
 
-.finalizada{
-    color: #0f0;
-}
-
-.atrasada{
+.pausada{
     color: #f00;
 }
+
+.concluída{
+    color: #00f;
+}
+
+.task-desc{
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    min-height: 50px;
+    background-color: #f7f7f7;
+}
+
+.float-left{
+    float: right;
+}
+
+.grey-text{
+    color: #aad;
+}
+
+.margin-left{
+    margin-left: 20px;
+}
+
+.underline{
+    border-bottom: 1px solid #ddd;
+}
+
+.white-link{
+    color: #000!important;
+}
+
+.white-link:hover{
+    color: #fff!important;
+}
+
+.options{
+    position: absolute;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 15px;
+    right: 40px;
+    top: 40px;
+    z-index: 999999;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px #ccc;
+    display: none;
+}
+
+.options ul li{
+    margin: 5px 0;
+    cursor: pointer;    
+}
+
+.options ul li:hover{
+    color: #ddd;
+}
+
+.icon-link{
+    color: #000!important;
+    text-decoration: none!important;
+    font-family: 'lucida grande',tahoma,verdana,arial,sans-serif!important;
+    font-size: 13px!important;
+    font-weight: 100!important;
+}
+
+.icon-link:hover{
+    color: #ddd!important;
+}
+
+
+
 

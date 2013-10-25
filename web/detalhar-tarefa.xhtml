@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./temp/index.xhtml">
+
+            <ui:define name="content">                
+                <h:form styleClass="underline">
+                    <ul class="menuUl">                        
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="nova tarefa" action="tarefas.xhtml" />
+                            </span>
+                        </li>
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="minhas tarefas" action="minhas-tarefas.xhtml" />
+                            </span>
+                        </li>
+                    </ul>
+                </h:form>
+
+                <p class="headerTitle">
+                    detalhar tarefa
+                </p>
+
+                <p class="grey-text">
+                    #{taskBean.findOne(param.id).author}
+
+                    <span class="float-left grey-text margin-left">
+                        Fim: <h:outputText value="#{taskBean.findOne(param.id).finishDate}">
+                            <f:convertDateTime dateStyle="long" pattern="d MMMM" />
+                        </h:outputText>
+                    </span>        
+
+                    <span class="float-left grey-text margin-left">
+                        Início: <h:outputText value="#{taskBean.findOne(param.id).releaseDate}">
+                            <f:convertDateTime dateStyle="long" pattern="d MMMM" />
+                        </h:outputText>
+                    </span>
+
+                </p>
+                <section class="task-desc">
+                    #{taskBean.findOne(param.id).description}
+                </section>
+
+                <p class="underline"></p>
+                
+                <p class="headerTitle">
+                    editar tarefa
+                </p>
+                
+                <h:form>
+                    <h:panelGrid columns="1">
+                        
+                        <h:outputText value="Status:" />
+                        <p:selectOneMenu value="#{taskBean.task.status}">
+                            <f:selectItems value="#{optionsMenu.status}" />
+                        </p:selectOneMenu>
+                        
+                        <h:outputText value="Novo comentário:" />
+                        <p:inputTextarea cols="80" />
+                        
+                        <h:commandButton styleClass="action-button"
+                                         action="a.xhtml"
+                                         value="salvar" />
+                        
+                    </h:panelGrid>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

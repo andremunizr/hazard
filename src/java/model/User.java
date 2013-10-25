@@ -3,6 +3,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
@@ -19,12 +20,13 @@ public class User{
     private String company;
     private String about;
     private String image;
+    private String sexo;
     private List<Task> tasks;
     private List<Notification> notifications;
 
     public User(){
         tasks = new ArrayList<>();
-        notifications = new ArrayList<>();
+        notifications = new ArrayList<>();        
     }
     
     public String getId() {
@@ -75,6 +77,14 @@ public class User{
         this.image = image;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+    
     public String getAbout() {
         return about;
     }
@@ -106,7 +116,7 @@ public class User{
     public void setNotifications(List<Notification> notifications) {
         this.notifications = notifications;
     }
-        
+            
     @Override
     public int hashCode() {
         int hash = 0;

@@ -11,6 +11,7 @@ public class Notification{
     @ObjectId
     private String _id;
     private String text;
+    private String link;
     private boolean read = false;
     
     public Notification(){}
@@ -31,6 +32,14 @@ public class Notification{
         this.text = text;
     }
 
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+    
     public boolean isRead() {
         return read;
     }

@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import model.User;
 
 @Named(value = "loggBean")
@@ -17,6 +18,8 @@ public class LoggBean implements Serializable {
 
     @EJB
     private MainController controller;
+    @Inject
+    private UserBean bean;
     private User sessionUser;
 
     public LoggBean() {
@@ -66,4 +69,10 @@ public class LoggBean implements Serializable {
         return set.getPassword().equals(found.getPassword())
                 && set.getEmail().equals(found.getEmail());
     }
+    
+    public User save(User user) throws UnknownHostException{
+        bean.save( user );
+        return user;
+    }
+    
 }

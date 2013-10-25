@@ -9,18 +9,52 @@
         <ui:composition template="./temp/index.xhtml">
 
             <ui:define name="content">    
-                    <h:graphicImage styleClass="avatar-img" library="img" name="evil-toddler.jpg" />                
-                    <article class="profile-info-cube"><strong>Joseph Malac Abado</strong></article>
-                    <article class="profile-info-cube profile-info-detail">Senior Developer</article>
-                    <article class="profile-info-cube profile-info-detail">Apple Inc.</article>
+                
+                <h:form class="underline">
+                    <ul class="menuUl">                        
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="perfil" action="profile.xhtml?faces-redirect=true" />
+                            </span>
+                        </li>
+                        <li>
+                            <span class="headerTitle">
+                                <h:commandLink value="editar" action="profile-edit.xhtml?faces-redirect=true" />
+                            </span>
+                        </li>
+                    </ul>
+                </h:form>
+                <br />
+                    <h:graphicImage styleClass="avatar-img" 
+                                    library="img" 
+                                    name="maleIcon.png" 
+                                    rendered="#{loggBean.sessionUser.sexo == 'masculino' and loggBean.sessionUser.image == null}" />
+                
+                    <h:graphicImage styleClass="avatar-img" 
+                                    library="img" 
+                                    name="femaleIcon.png" 
+                                    rendered="#{loggBean.sessionUser.sexo == 'feminino' and loggBean.sessionUser.image == null}" />
+                    
+                    <h:graphicImage styleClass="avatar-img" 
+                                    library="avImg" 
+                                    name="#{loggBean.sessionUser.image}" 
+                                    rendered="#{loggBean.sessionUser.image != null}" />   
+                                        
+                    <article class="profile-info-cube">
+                        <strong>
+                            <h:outputText value="#{loggBean.sessionUser.name}" />
+                        </strong>
+                    </article>
+                    <article class="profile-info-cube profile-info-detail">
+                        <h:outputText value="#{loggBean.sessionUser.employ}" />
+                    </article>
+                    <article class="profile-info-cube profile-info-detail">
+                        <h:outputText value="#{loggBean.sessionUser.company}" />
+                    </article>
                     <div class="about">
                         <span class="headerTitle">Sobre</span>
                         <p>
-                        Cras quis lacus a ligula consectetur elementum. Integer sed blandit neque. 
-                        Sed at pulvinar nisi, ac varius arcu. Nullam non rutrum lectus. 
-                        Proin eu augue mollis, bibendum lectus nec, mattis metus. 
-                        Duis ullamcorper nisl sit amet ornare molestie. Nam vel commodo dui. 
-                        Aliquam gravida arcu in suscipit vulputate.
+                            <h:outputText value="#{loggBean.sessionUser.about}" />
                         </p>
                     </div>
                     <div class="profile-info-bar">

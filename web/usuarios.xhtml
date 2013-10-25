@@ -12,7 +12,7 @@
 
             <ui:define name="content">
 
-                 <h:form>
+                <h:form>
                     <ul class="menuUl">
                         <li>
                             <span class="headerTitle">
@@ -30,26 +30,31 @@
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Nome:" />
                             <p:inputText size="40" value="#{userBean.user.name}"/>
-                            
+
                             <h:outputLabel value="Email:" />
                             <p:inputText size="40" value="#{userBean.user.email}"/>
-                            
+
                             <h:outputLabel value="Senha:" />
                             <p:password size="40" value="#{userBean.user.password}"/>
-                            
+
                             <h:outputLabel value="Ocupação:" />
                             <p:inputText size="40" value="#{userBean.user.employ}"/>
-                            
+
                             <h:outputLabel value="Compania:" />
                             <p:inputText size="40" value="#{userBean.user.company}" />
-                            
+
+                            <h:outputText value="Sexo" />
+                            <p:selectOneMenu value="#{userBean.user.sexo}">
+                                <f:selectItems value="#{optionsMenu.sexo}" />
+                            </p:selectOneMenu>
+
                             <p:commandButton action="#{userBean.save()}"
                                              styleClass="action-button search-button" 
                                              value="salvar" update="@form" />
                         </h:panelGrid>
                     </h:form>
                 </div>
-                
+
                 <script>
                     document.title = 'Usuários';
                 </script>  

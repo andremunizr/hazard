@@ -23,11 +23,11 @@
                     </span>
                     <ul class="topUl">                        
                         <li>
-                            <h:form>
-                                <h:commandLink styleClass="first-icon-menu menu-icons">
-                                    <h:graphicImage styleClass="img-top-menu" library="img" name="menu-i.png" />
-                                </h:commandLink>
-                            </h:form>
+                            <section id="menu-button">
+                                    <span class="first-icon-menu menu-icons">
+                                        <h:graphicImage styleClass="img-top-menu" library="img" name="menu-i.png" />
+                                    </span>
+                            </section>
                         </li>
                         <li>
                             <h:form>
@@ -38,6 +38,33 @@
                         </li>
                     </ul>
                 </div>
+                
+                <section class="options" id="options">
+                    <ul>
+                        <li>
+                            <h:form>
+                                <h:link styleClass="icon-link" 
+                                        outcome="index.xhtml?faces-redirect=true" 
+                                        value="início" />
+                            </h:form>
+                        </li>
+                        <li>
+                            <h:form>
+                                <h:link styleClass="icon-link" 
+                                        outcome="minhas-tarefas.xhtml?faces-redirect=true" 
+                                        value="tarefas" />
+                            </h:form>
+                        </li>
+                        <li>
+                            <h:form>
+                                <h:link styleClass="icon-link" 
+                                        outcome="profile.xhtml?faces-redirect=true" 
+                                        value="perfil" />
+                            </h:form>
+                        </li>                       
+                    </ul>
+                </section>
+                
             </ui:insert>
         </div>
         <div>
@@ -52,7 +79,9 @@
                                        var="notif">
                                 <li>
                                     <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    <h:outputText value="#{notif.getText()}" />
+                                    <h:link styleClass="white-link" 
+                                            outcome="#{notif.getLink()}" 
+                                            value="#{notif.getText()}" />
                                 </li>
                             </ui:repeat>
                         </ul>
