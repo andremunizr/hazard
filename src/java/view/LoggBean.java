@@ -1,6 +1,8 @@
 package view;
 
+import controller.LoginController;
 import controller.MainController;
+import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -18,6 +20,8 @@ public class LoggBean implements Serializable {
 
     @EJB
     private MainController controller;
+    @EJB
+    private LoginController loginController;
     @Inject
     private UserBean bean;
     private User sessionUser;
@@ -73,6 +77,10 @@ public class LoggBean implements Serializable {
     public User save(User user) throws UnknownHostException{
         bean.save( user );
         return user;
+    }
+    
+    public String logout() throws IOException{
+        return loginController.logout();
     }
     
 }

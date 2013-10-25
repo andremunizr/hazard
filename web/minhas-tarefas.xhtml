@@ -24,7 +24,12 @@
                         </li>
                     </ul>
                 </h:form>
-                
+
+                <section class="advice-center">
+                    <h:outputText rendered="#{empty loggBean.sessionUser.tasks}"
+                                  value="Você não possui nenhuma tarefa." />
+                </section>
+
                 <ui:repeat value="#{loggBean.sessionUser.tasks}" var="task">
 
                     <section class="taskItems">
