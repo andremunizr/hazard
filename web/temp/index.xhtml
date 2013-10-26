@@ -22,7 +22,7 @@
                         Hazard
                     </span>
                     <h:graphicImage styleClass="top-img" 
-                                    library="avImg" 
+                                    library="avImg"
                                     name="#{loggBean.sessionUser.image}"
                                     rendered="#{loggBean.sessionUser.image != null}" />
                     <span style="margin-left: 85px">
@@ -104,76 +104,14 @@
                         <div class="titles back-blue" id="titleFacadeEquip">
                             Equipe
                         </div>
-                        <div class="equipBox" id="equipBox">                            
+                        <div class="equipBox" id="equipBox">
                             <ul class="equipList">
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    One Piece
-                                </li>
+                                <ui:repeat value="#{userBean.users}" var="user">
+                                    <li>
+                                        <h:graphicImage library="img" name="evil-toddler.jpg" />
+                                        <h:outputText value="#{user.name}" />
+                                    </li>
+                                </ui:repeat>
                             </ul>
                         </div>
                     </ui:insert>

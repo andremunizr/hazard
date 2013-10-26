@@ -1,6 +1,7 @@
 
 package model;
 
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
@@ -11,6 +12,7 @@ public class Project{
     @ObjectId
     private String _id;
     private String name;
+    private List<Task> tasks;
     
     public Project(){}
 
@@ -28,7 +30,15 @@ public class Project{
 
     public void setName(String name) {
         this.name = name;
-    }    
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
         
     @Override
     public int hashCode() {
