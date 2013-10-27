@@ -12,6 +12,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import model.Notification;
 import model.User;
 
 @Named(value = "loggBean")
@@ -82,5 +83,20 @@ public class LoggBean implements Serializable {
     public String logout() throws IOException{
         return loginController.logout();
     }
+    
+    public void setRead(Notification notif) throws UnknownHostException{
+        
+        for(Notification n : sessionUser.getNotifications()){
+            
+            System.out.println("Id na notif:" + n.getId());
+            
+            if( n.getId().equals(notif.getId()) ){
+                n.setRead(true);
+                break;
+            }
+        }
+        bean.save(sessionUser);
+    }
+    
     
 }

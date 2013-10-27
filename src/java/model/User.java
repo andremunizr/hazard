@@ -21,6 +21,7 @@ public class User{
     private String about;
     private String image;
     private String sexo;
+    private List<Badge> badges;
     private List<Task> tasks;
     private List<Notification> notifications;
 
@@ -99,6 +100,14 @@ public class User{
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    public List<Badge> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<Badge> badges) {
+        this.badges = badges;
     }
     
     public List<Task> getTasks() {

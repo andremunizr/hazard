@@ -20,6 +20,10 @@ public class Notification{
         return _id;
     }
 
+    public String getIdString(){
+        return _id.toString();
+    }
+    
     public void setId(String _id) {
         this._id = _id;
     }
