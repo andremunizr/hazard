@@ -58,11 +58,14 @@
                         <ul class="notifList">
                             <ui:repeat value="#{loggBean.sessionUser.notifications}"
                                        var="notif">
-                                <li>
-                                    <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                    <h:link styleClass="white-link" 
-                                            outcome="#{notif.getLink()}" 
-                                            value="#{notif.getText()}" />
+                                <li class="read-#{notif.read}">                                    
+                                    <h:form>
+                                        <h:graphicImage library="img" name="evil-toddler.jpg" />
+                                        <h:commandLink styleClass="white-link" 
+                                                       actionListener="#{loggBean.setRead(notif)}"
+                                                       action="#{notif.getLink()}" 
+                                                       value="#{notif.getText()}" />
+                                    </h:form>
                                 </li>
                             </ui:repeat>
                         </ul>
@@ -157,40 +160,40 @@
                 </div>
             </div>
         </div>    
-        
+
         <section class="options" id="options">
-                    <ul>
-                        <li>
-                            <h:form>
-                                <h:commandLink styleClass="icon-link" 
-                                        action="index.xhtml?faces-redirect=true" 
-                                        value="início" />                                
-                            </h:form>
-                        </li>
-                        <li>
-                            <h:form>
-                                <h:commandLink styleClass="icon-link" 
-                                        action="minhas-tarefas.xhtml?faces-redirect=true" 
-                                        value="tarefas" />
-                            </h:form>
-                        </li>
-                        <li>
-                            <h:form>
-                                <h:commandLink styleClass="icon-link" 
-                                        action="profile.xhtml?faces-redirect=true" 
-                                        value="perfil" />
-                            </h:form>
-                        </li>                       
-                        <li>
-                            <h:form>
-                                <h:commandLink styleClass="icon-link"
-                                               action="#{loggBean.logout()}" 
-                                               value="sair" />
-                            </h:form>
-                        </li>
-                    </ul>
-                </section>
-        
+            <ul>
+                <li>
+                    <h:form>
+                        <h:commandLink styleClass="icon-link" 
+                                       action="index.xhtml?faces-redirect=true" 
+                                       value="início" />                                
+                    </h:form>
+                </li>
+                <li>
+                    <h:form>
+                        <h:commandLink styleClass="icon-link" 
+                                       action="minhas-tarefas.xhtml?faces-redirect=true" 
+                                       value="tarefas" />
+                    </h:form>
+                </li>
+                <li>
+                    <h:form>
+                        <h:commandLink styleClass="icon-link" 
+                                       action="profile.xhtml?faces-redirect=true" 
+                                       value="perfil" />
+                    </h:form>
+                </li>                       
+                <li>
+                    <h:form>
+                        <h:commandLink styleClass="icon-link"
+                                       action="#{loggBean.logout()}" 
+                                       value="sair" />
+                    </h:form>
+                </li>
+            </ul>
+        </section>
+
         <h:outputScript library="js" name="scripts.js" />
     </h:body>
 

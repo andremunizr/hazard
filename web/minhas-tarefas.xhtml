@@ -27,9 +27,9 @@
 
                 <section class="advice-center">
                     <h:outputText rendered="#{empty loggBean.sessionUser.tasks}"
-                                  value="Você não possui nenhuma tarefa." />
+                                  value="Nenhuma tarefa a ser exibida" />
                 </section>
-
+                
                 <ui:repeat value="#{loggBean.sessionUser.tasks}" var="task">
 
                     <section class="taskItems">
