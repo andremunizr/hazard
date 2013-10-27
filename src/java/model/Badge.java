@@ -34,10 +34,6 @@ public class Badge {
     public void setImage(String image) {
         this.image = image;
     }
-    
-    public static String getDocumentName() {
-        return "badge";
-    }
         
     @Override
     public int hashCode() {

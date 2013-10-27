@@ -25,10 +25,6 @@ public class UserBean {
         
         if( users == null ) {
             setUsers( ( List<User> ) ( List<?> ) controller.getDocuments( User.class ) );
-        }        
-        
-        for(User u : users){
-            System.out.println("Nome do cara: " + u.getName());
         }
         
         return users;
