@@ -45,4 +45,15 @@ public class ProjectBean {
         this.availableProjects = availableProjects;
     }
     
+    public void save() throws UnknownHostException {
+        
+        if( project.getName() != null ) {
+            controller.saveDocument( Project.class, project );
+        }
+        else {
+            System.out.println( "Nome do projeto está nulo." );
+        }
+        
+    }
+    
 }
