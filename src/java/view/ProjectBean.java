@@ -22,6 +22,7 @@ public class ProjectBean {
     public void initializer() throws UnknownHostException {
         setProject( new Project() );
         setAvailableProjects( ( List<Project> ) ( List<?> ) controller.getDocuments( Project.class ) );
+        getProject().setName( "Teste" );
     }
     
     public Project getProject() {
@@ -47,12 +48,7 @@ public class ProjectBean {
     
     public void save() throws UnknownHostException {
         
-        if( project.getName() != null ) {
-            controller.saveDocument( Project.class, project );
-        }
-        else {
-            System.out.println( "Nome do projeto está nulo." );
-        }
+        System.out.println( project.getName() );
         
     }
     
