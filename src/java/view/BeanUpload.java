@@ -90,7 +90,7 @@ public class BeanUpload {
                 refreshUserPic( getFile().getFileName() );
 
                 FacesContext context = FacesContext.getCurrentInstance();
-                context.addMessage(null, new FacesMessage("Sucesso", "O envio do arquivo foi bem sucedido!"));
+                //context.addMessage(null, new FacesMessage("Sucesso", "O envio do arquivo foi bem sucedido!"));
             } else {
                 FacesContext context = FacesContext.getCurrentInstance();
                 context.addMessage(null, new FacesMessage("Erro", "Extensão de arquivo não permitida!"));

@@ -61,10 +61,9 @@
                                 <li class="read-#{notif.read}">                                    
                                     <h:form>
                                         <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                        <h:commandLink styleClass="white-link" 
-                                                       actionListener="#{loggBean.setRead(notif)}"
-                                                       action="#{notif.getLink()}" 
-                                                       value="#{notif.getText()}" />
+                                        <h:link styleClass="white-link" 
+                                                       outcome="#{notif.link}" 
+                                                       value="#{notif.text}" />
                                     </h:form>
                                 </li>
                             </ui:repeat>
@@ -111,7 +110,7 @@
                             <ul class="equipList">
                                 <ui:repeat value="#{userBean.users}" var="user">
                                     <li>
-                                        <h:graphicImage library="img" name="evil-toddler.jpg" />
+                                        <h:graphicImage library="avImg" name="#{user.image}" />
                                         <h:outputText value="#{user.name}" />
                                     </li>
                                 </ui:repeat>

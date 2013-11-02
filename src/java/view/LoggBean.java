@@ -27,8 +27,7 @@ public class LoggBean implements Serializable {
     private UserBean bean;
     private User sessionUser;
 
-    public LoggBean() {
-    }
+    public LoggBean(){}
 
     public User getSessionUser() {
         return sessionUser;

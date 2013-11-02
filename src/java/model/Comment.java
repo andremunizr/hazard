@@ -12,7 +12,7 @@ public class Comment{
     @ObjectId
     private String _id;
     private String text;
-    private User author;
+    private String author;
     private Date date;
     
     public Comment(){}
@@ -33,11 +33,11 @@ public class Comment{
         this.text = text;
     }
 
-    public User getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
