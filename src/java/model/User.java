@@ -23,10 +23,12 @@ public class User{
     private List<Badge> badges;
     private List<Task> tasks;
     private List<Notification> notifications;
+    private List<Project> projects;
 
     public User(){
         tasks = new ArrayList<>();
-        notifications = new ArrayList<>();        
+        notifications = new ArrayList<>();
+        projects = new ArrayList<>();
     }
     
     public String getId() {
@@ -123,6 +125,14 @@ public class User{
 
     public void setNotifications(List<Notification> notifications) {
         this.notifications = notifications;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
             
     @Override
