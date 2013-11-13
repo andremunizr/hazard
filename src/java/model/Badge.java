@@ -1,6 +1,7 @@
 
 package model;
 
+import java.util.Date;
 import org.jongo.marshall.jackson.oid.ObjectId;
 
 @JongoCollection( "badge" )
@@ -10,7 +11,16 @@ public class Badge {
     private String _id;
     private String name;
     private String image;
+    private Date dateAcquired;
 
+    public Badge(){};
+
+    public Badge(String name, String image, Date dateAcquired) {
+        this.name = name;
+        this.image = image;
+        this.dateAcquired = dateAcquired;
+    }
+    
     public String getId() {
         return _id;
     }

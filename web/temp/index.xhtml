@@ -60,10 +60,17 @@
                                        var="notif">
                                 <li class="read-#{notif.read}">                                    
                                     <h:form>
-                                        <h:graphicImage library="img" name="evil-toddler.jpg" />
+                                        <h:graphicImage library="img" 
+                                                        name="evil-toddler.jpg"
+                                                        rendered="#{notif.picture == null}" />
+                                        
+                                        <h:graphicImage library="avImg" 
+                                                        name="#{notif.picture}"
+                                                        rendered="#{notif.picture != null}" />
+                                        
                                         <h:link styleClass="white-link" 
-                                                       outcome="#{notif.link}" 
-                                                       value="#{notif.text}" />
+                                                outcome="#{notif.link}"
+                                                value="#{notif.text}" />
                                     </h:form>
                                 </li>
                             </ui:repeat>
@@ -171,15 +178,15 @@
                 </li>
                 <li>
                     <h:form>
-                        <h:commandLink styleClass="icon-link" 
-                                       action="minhas-tarefas.xhtml?faces-redirect=true" 
+                        <h:link styleClass="icon-link" 
+                                       outcome="minhas-tarefas.xhtml?faces-redirect=true" 
                                        value="tarefas" />
                     </h:form>
                 </li>
                 <li>
                     <h:form>
-                        <h:commandLink styleClass="icon-link" 
-                                       action="profile.xhtml?faces-redirect=true" 
+                        <h:link styleClass="icon-link" 
+                                       outcome="profile.xhtml?faces-redirect=true" 
                                        value="perfil" />
                     </h:form>
                 </li>                       

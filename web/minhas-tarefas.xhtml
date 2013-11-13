@@ -29,11 +29,27 @@
                     <h:outputText rendered="#{empty loggBean.sessionUser.tasks}"
                                   value="Nenhuma tarefa a ser exibida" />
                 </section>
-                
+
                 <ui:repeat value="#{loggBean.sessionUser.tasks}" var="task">
 
                     <section class="taskItems">
-                        <h:graphicImage library="img" name="evil-toddler.jpg" styleClass="avatar-display" />
+
+                        <h:graphicImage styleClass="avatar-display" 
+                                        library="img" 
+                                        name="maleIcon.png" 
+                                        rendered="#{userBean.findOne( task.authorId ).sexo == 'masculino' and 
+                                                    userBean.findOne( task.authorId ).image == null}" />
+
+                        <h:graphicImage styleClass="avatar-display" 
+                                        library="img" 
+                                        name="femaleIcon.png" 
+                                        rendered="#{userBean.findOne( task.authorId ).sexo == 'feminino' and 
+                                                    userBean.findOne( task.authorId ).image == null}" />
+
+                        <h:graphicImage styleClass="avatar-display" 
+                                        library="avImg" 
+                                        name="#{userBean.findOne( task.authorId ).image}" 
+                                        rendered="#{userBean.findOne( task.authorId ).image != null}" />  
 
                         <section class="task-list-span msgSender">
                             <h:outputText value="#{task.author}" />

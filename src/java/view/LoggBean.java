@@ -34,6 +34,7 @@ public class LoggBean implements Serializable {
     }
 
     public void setSessionUser(User sessionUser) {
+                
         this.sessionUser = sessionUser;
     }
 
@@ -45,7 +46,7 @@ public class LoggBean implements Serializable {
     public String login() throws UnknownHostException {
 
         User holdUser = (User) controller.findOneByAttr(User.class, "email", sessionUser.getEmail());
-
+                
         if (holdUser != null) {
             if (canLogin(sessionUser, holdUser)) {
 
@@ -83,19 +84,24 @@ public class LoggBean implements Serializable {
         return loginController.logout();
     }
     
-    public void setRead(Notification notif) throws UnknownHostException{
+    public String setRead( Notification notif ) throws UnknownHostException{
         
         for(Notification n : sessionUser.getNotifications()){
             
             System.out.println("Id na notif:" + n.getId());
+            System.out.println("Id da n.pag:" + notif.getId());
             
-            if( n.getId().equals(notif.getId()) ){
-                n.setRead(true);
-                break;
+            try{                
+                if( n.getId().equals(notif.getId()) ){
+                    n.setRead(true);
+                    break;
+                }
+            }catch( NullPointerException e ){
+                e.getMessage();
             }
         }
-        bean.save(sessionUser);
+        
+        bean.save( sessionUser );
+        return notif.getLink();
     }
-    
-    
 }

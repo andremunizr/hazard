@@ -12,6 +12,7 @@ public class Notification{
     private String _id;
     private String text;
     private String link;
+    private String picture;
     private boolean read = false;
     
     public Notification(){}
@@ -42,6 +43,14 @@ public class Notification{
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
     
     public boolean isRead() {

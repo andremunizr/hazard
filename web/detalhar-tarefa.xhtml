@@ -86,12 +86,14 @@
 
                 <p class="underline"></p>
 
-                <p class="headerTitle" id="edit-task-title">
-                    editar tarefa
-                </p>
+                <h:panelGrid rendered="#{taskBean.findOne( param.id ).status != 'concluída' }">
+                    <p class="headerTitle" id="edit-task-title">
+                        editar tarefa
+                    </p>
+                </h:panelGrid>
 
                 <section class="edit-task-box">
-                    <h:form>
+                    <h:form rendered="#{taskBean.findOne( param.id ).status != 'concluída' }">
                         <h:panelGrid columns="1">
 
                             <h:outputText value="Status:" />
@@ -100,7 +102,10 @@
                             </p:selectOneMenu>
 
                             <h:outputText value="Novo comentário:" />
-                            <p:inputTextarea cols="80" value="#{taskBean.comment.text}" />
+                            <p:inputTextarea cols="80" 
+                                             value="#{taskBean.comment.text}"
+                                             required="true"
+                                             requiredMessage="escreva o texto do comentário" />
 
                             <h:commandButton styleClass="action-button"
                                              actionListener="#{taskBean.edit( param.id )}"

@@ -9,7 +9,7 @@
         <ui:composition template="./temp/index.xhtml">
 
             <ui:define name="content">    
-                
+
                 <h:form class="underline">
                     <ul class="menuUl">                        
                         <li>
@@ -25,81 +25,67 @@
                     </ul>
                 </h:form>
                 <br />
-                    <h:graphicImage styleClass="avatar-img" 
-                                    library="img" 
-                                    name="maleIcon.png" 
-                                    rendered="#{loggBean.sessionUser.sexo == 'masculino' and loggBean.sessionUser.image == null}" />
-                
-                    <h:graphicImage styleClass="avatar-img" 
-                                    library="img" 
-                                    name="femaleIcon.png" 
-                                    rendered="#{loggBean.sessionUser.sexo == 'feminino' and loggBean.sessionUser.image == null}" />
-                    
-                    <h:graphicImage styleClass="avatar-img" 
-                                    library="avImg" 
-                                    name="#{loggBean.sessionUser.image}" 
-                                    rendered="#{loggBean.sessionUser.image != null}" />   
-                                        
-                    <article class="profile-info-cube">
-                        <strong>
-                            <h:outputText value="#{loggBean.sessionUser.name}" />
-                        </strong>
-                    </article>
-                    <article class="profile-info-cube profile-info-detail">
-                        <h:outputText value="#{loggBean.sessionUser.employ}" />
-                    </article>
-                    <article class="profile-info-cube profile-info-detail">
-                        <h:outputText value="#{loggBean.sessionUser.company}" />
-                    </article>
-                    <div class="about">
-                        <span class="headerTitle">Sobre</span>
-                        <p>
-                            <h:outputText value="#{loggBean.sessionUser.about}" />
-                        </p>
-                    </div>
-                    <div class="profile-info-bar">
-                        <span class="span-info-bar">
-                            <strong>tarefas completas:</strong> 34 
-                        </span> |
-                        <span class="span-info-bar">
-                            <strong>insígnias:</strong> 20
-                        </span> |
-                        <span class="span-info-bar">
-                            <strong>bla bla bla:</strong> 100
-                        </span> 
-                    </div>
-                    <div class="badges-container">
+                <h:graphicImage styleClass="avatar-img" 
+                                library="img" 
+                                name="maleIcon.png" 
+                                rendered="#{loggBean.sessionUser.sexo == 'masculino' and loggBean.sessionUser.image == null}" />
+
+                <h:graphicImage styleClass="avatar-img" 
+                                library="img" 
+                                name="femaleIcon.png" 
+                                rendered="#{loggBean.sessionUser.sexo == 'feminino' and loggBean.sessionUser.image == null}" />
+
+                <h:graphicImage styleClass="avatar-img" 
+                                library="avImg" 
+                                name="#{loggBean.sessionUser.image}" 
+                                rendered="#{loggBean.sessionUser.image != null}" />   
+
+                <article class="profile-info-cube">
+                    <strong>
+                        <h:outputText value="#{loggBean.sessionUser.name}" />
+                    </strong>
+                </article>
+                <article class="profile-info-cube profile-info-detail">
+                    <h:outputText value="#{loggBean.sessionUser.employ}" />
+                </article>
+                <article class="profile-info-cube profile-info-detail">
+                    <h:outputText value="#{loggBean.sessionUser.company}" />
+                </article>
+                <div class="about">
+                    <span class="headerTitle">Sobre</span>
+                    <p>
+                        <h:outputText value="#{loggBean.sessionUser.about}" />
+                    </p>
+                </div>
+                <div class="profile-info-bar">
+                    <span class="span-info-bar">
+                        <strong>tarefas completas:</strong> 34 
+                    </span> |
+                    <span class="span-info-bar">
+                        <strong>insígnias:</strong> 20
+                    </span> |
+                    <span class="span-info-bar">
+                        <strong>bla bla bla:</strong> 100
+                    </span> 
+                </div>
+                <div class="badges-container">
+
+                    <br />
+                    <span class="headerTitle">
+                        <h:outputText value="Insígnias" />
+                    </span>
+                    <br />
+                    <br />
+
+                    <ui:repeat value="#{loggBean.sessionUser.badges}" var="badge">
                         <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-139-icon.png" title="Boulder Badge" />
+                            <h:graphicImage library="avImg" 
+                                            name="#{badge.image}" 
+                                            title="#{badge.name}" />
                         </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-184-icon.png" title="Cascade Badge" />
-                        </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-212-icon.png" title="Thunder Badge" />
-                        </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-283-icon.png" title="Rainbow Badge" />
-                        </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-044-icon.png" title="Soul Badge" />
-                        </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-069-icon.png" title="Marsh Badge" />
-                        </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-089-icon.png" title="Volcano Badge" />
-                        </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-093-icon.png" title="Earth Badge" />
-                        </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-110-icon.png" title="Zephyr Badge" />
-                        </div>
-                        <div class="badges-face">
-                            <h:graphicImage library="img" name="orange-sticker-badges-221-icon.png" title="Rive Badge" />
-                        </div>
-                    </div>
+                    </ui:repeat>
+
+                </div>
             </ui:define>
 
         </ui:composition>

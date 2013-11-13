@@ -353,7 +353,8 @@
     height: 40px;
     border-right: 1px solid #aaa;
     vertical-align: middle;
-    margin-right: 5px;    
+    margin-right: 5px;  
+    background-color: #fff;
 }
 
 .welcome{
@@ -480,9 +481,7 @@
 .badges-face{
     height: 45px;
     width: 45px;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: 0px 0px 3px #aaa;
     float: left;
     margin-right: 8px;
     transition: 2s;
@@ -602,7 +601,7 @@
 }
 
 .concluída{
-    color: #00f;
+    color: #00CD00;
 }
 
 .task-desc{
