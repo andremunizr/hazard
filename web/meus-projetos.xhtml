@@ -30,6 +30,11 @@
                                   value="Nenhum projeto a ser exibido" />
                 </section>
                 
+                <ul>
+                    <ui:repeat value="#{loggBean.sessionUser.projects}" var="project">
+                        <li>#{project.name}</li>
+                    </ui:repeat>
+                </ul>
 
                 <script>
                     document.title = 'Meus Projetos';

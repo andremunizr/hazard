@@ -75,28 +75,9 @@
                     </div>
                     <div class="projBox" id="projBox">                            
                         <ul class="projList">
-                            <li>
-                                <!-- <h:graphicImage library="img" name="evil-toddler.jpg" /> -->
-                                One Piece
-                            </li>
-                            <li>                                    
-                                One Piece
-                            </li>
-                            <li>
-                                One Piece
-                            </li>
-                            <li>
-                                One Piece
-                            </li>
-                            <li>
-                                One Piece
-                            </li>
-                            <li>
-                                One Piece
-                            </li>
-                            <li>
-                                One Piece
-                            </li>
+                            <ui:repeat value="#{projectBean.availableProjects}" var="project">
+                                <li>#{project.name}</li>
+                            </ui:repeat>
                         </ul>
                     </div>
                 </ui:insert>
@@ -175,6 +156,13 @@
                         <h:commandLink styleClass="icon-link" 
                                        action="minhas-tarefas.xhtml?faces-redirect=true" 
                                        value="tarefas" />
+                    </h:form>
+                </li>
+                <li>
+                    <h:form>
+                        <h:commandLink styleClass="icon-link" 
+                                       action="meus-projetos.xhtml?faces-redirect=true" 
+                                       value="projetos" />
                     </h:form>
                 </li>
                 <li>

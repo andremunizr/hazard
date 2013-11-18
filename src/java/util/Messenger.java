@@ -3,7 +3,8 @@ package util;
 
 public enum Messenger {
     
-    NOVA_TAREFA("Você recebeu uma nova tarefa","detalhar-tarefa.xhtml");
+    NOVA_TAREFA("Você recebeu uma nova tarefa","detalhar-tarefa.xhtml"),
+    NOVO_PROJETO( "Você cadastrou um novo projeto", "meus-projetos.xhtml" );
     
     private String msg;
     private String link;

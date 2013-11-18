@@ -58,4 +58,9 @@ public class Project{
         }
         return true;
     }
+    
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }
