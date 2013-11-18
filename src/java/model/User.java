@@ -20,12 +20,14 @@ public class User{
     private String about;
     private String image;
     private String sexo;
+    private Boolean haveFirstTaskComplete = false;
     private List<Badge> badges;
     private List<Task> tasks;
     private List<Notification> notifications;
     private List<Project> projects;
 
     public User(){
+        badges = new ArrayList<>();
         tasks = new ArrayList<>();
         notifications = new ArrayList<>();
         projects = new ArrayList<>();
@@ -79,6 +81,14 @@ public class User{
         this.image = image;
     }
 
+    public Boolean getHaveFirstTaskComplete() {
+        return haveFirstTaskComplete;
+    }
+
+    public void setHaveFirstTaskComplete(Boolean haveFirstTaskComplete) {
+        this.haveFirstTaskComplete = haveFirstTaskComplete;
+    }
+    
     public String getSexo() {
         return sexo;
     }

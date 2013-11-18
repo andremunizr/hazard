@@ -103,6 +103,7 @@
     padding: 5px;
     margin: 0px 270px 0px 270px;
     border: 1px solid #ddd;
+    overflow-y: scroll;
 }
 
 #content{
@@ -352,7 +353,8 @@
     height: 40px;
     border-right: 1px solid #aaa;
     vertical-align: middle;
-    margin-right: 5px;    
+    margin-right: 5px;  
+    background-color: #fff;
 }
 
 .welcome{
@@ -479,9 +481,7 @@
 .badges-face{
     height: 45px;
     width: 45px;
-    border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: 0px 0px 3px #aaa;
     float: left;
     margin-right: 8px;
     transition: 2s;
@@ -601,7 +601,7 @@
 }
 
 .concluída{
-    color: #00f;
+    color: #00CD00;
 }
 
 .task-desc{
@@ -611,7 +611,21 @@
     background-color: #f7f7f7;
 }
 
+.comment-text{
+    display: inline-table;
+    margin-left: -82px;
+    margin-top: 5px;
+}
+
+.clear{
+    clear: both;
+}
+
 .float-left{
+    float: left;
+}
+
+.float-right{
     float: right;
 }
 
@@ -688,4 +702,12 @@
 
 .read-false{
     background-color: #ddd;
+}
+
+.edit-task-box{
+    display: none;
+}
+
+#edit-task-title{
+    cursor: pointer;
 }

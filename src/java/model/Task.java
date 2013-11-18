@@ -1,6 +1,7 @@
 
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,10 +19,13 @@ public class Task{
     private Date finishDate;
     private Date completeDate;
     private String author;
+    private String authorId;
     private Double estimatedHours;
     private List<Comment> comments;
     
-    public Task(){}
+    public Task(){
+        comments = new ArrayList<>();
+    }
 
     public String getId(){
         return _id;
@@ -77,6 +81,14 @@ public class Task{
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(String authorId) {
+        this.authorId = authorId;
     }
     
     public Double getEstimatedHours() {
