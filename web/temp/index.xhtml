@@ -60,11 +60,17 @@
                                        var="notif">
                                 <li class="read-#{notif.read}">                                    
                                     <h:form>
-                                        <h:graphicImage library="img" name="evil-toddler.jpg" />
-                                        <h:commandLink styleClass="white-link" 
-                                                       actionListener="#{loggBean.setRead(notif)}"
-                                                       action="#{notif.getLink()}" 
-                                                       value="#{notif.getText()}" />
+                                        <h:graphicImage library="img" 
+                                                        name="evil-toddler.jpg"
+                                                        rendered="#{notif.picture == null}" />
+                                        
+                                        <h:graphicImage library="avImg" 
+                                                        name="#{notif.picture}"
+                                                        rendered="#{notif.picture != null}" />
+                                        
+                                        <h:link styleClass="white-link" 
+                                                outcome="#{notif.link}"
+                                                value="#{notif.text}" />
                                     </h:form>
                                 </li>
                             </ui:repeat>
@@ -75,9 +81,28 @@
                     </div>
                     <div class="projBox" id="projBox">                            
                         <ul class="projList">
-                            <ui:repeat value="#{projectBean.availableProjects}" var="project">
-                                <li>#{project.name}</li>
-                            </ui:repeat>
+                            <li>
+                                <!-- <h:graphicImage library="img" name="evil-toddler.jpg" /> -->
+                                One Piece
+                            </li>
+                            <li>                                    
+                                One Piece
+                            </li>
+                            <li>
+                                One Piece
+                            </li>
+                            <li>
+                                One Piece
+                            </li>
+                            <li>
+                                One Piece
+                            </li>
+                            <li>
+                                One Piece
+                            </li>
+                            <li>
+                                One Piece
+                            </li>
                         </ul>
                     </div>
                 </ui:insert>
@@ -92,7 +117,7 @@
                             <ul class="equipList">
                                 <ui:repeat value="#{userBean.users}" var="user">
                                     <li>
-                                        <h:graphicImage library="img" name="evil-toddler.jpg" />
+                                        <h:graphicImage library="avImg" name="#{user.image}" />
                                         <h:outputText value="#{user.name}" />
                                     </li>
                                 </ui:repeat>
@@ -153,22 +178,15 @@
                 </li>
                 <li>
                     <h:form>
-                        <h:commandLink styleClass="icon-link" 
-                                       action="minhas-tarefas.xhtml?faces-redirect=true" 
+                        <h:link styleClass="icon-link" 
+                                       outcome="minhas-tarefas.xhtml?faces-redirect=true" 
                                        value="tarefas" />
                     </h:form>
                 </li>
                 <li>
                     <h:form>
-                        <h:commandLink styleClass="icon-link" 
-                                       action="meus-projetos.xhtml?faces-redirect=true" 
-                                       value="projetos" />
-                    </h:form>
-                </li>
-                <li>
-                    <h:form>
-                        <h:commandLink styleClass="icon-link" 
-                                       action="profile.xhtml?faces-redirect=true" 
+                        <h:link styleClass="icon-link" 
+                                       outcome="profile.xhtml?faces-redirect=true" 
                                        value="perfil" />
                     </h:form>
                 </li>                       
